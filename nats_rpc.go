@@ -20,7 +20,7 @@ import (
 
 	"github.com/nats-io/nats.go"
 	"github.com/nats-io/nats.go/encoders/protobuf"
-	"github.com/nats-io/graft/pb"
+	"github.com/xpzouying/graft/pb"
 )
 
 // The subject space for the nats rpc driver is based on the

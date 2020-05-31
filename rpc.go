@@ -14,7 +14,7 @@
 package graft
 
 import (
-	"github.com/nats-io/graft/pb"
+	"github.com/xpzouying/graft/pb"
 )
 
 // An RPCDriver allows multiple transports to be utilized for the

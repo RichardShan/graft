@@ -21,11 +21,12 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"io"
+	"log"
 	mrand "math/rand"
 	"sync"
 	"time"
 
-	"github.com/nats-io/graft/pb"
+	"github.com/xpzouying/graft/pb"
 )
 
 type Node struct {
@@ -309,7 +310,10 @@ func (n *Node) runAsCandidate() {
 	}
 
 	// Send the vote request to other members
-	n.rpc.RequestVote(vreq)
+	if err := n.rpc.RequestVote(vreq); err != nil {
+		log.Printf("candidate request vote error: %v", err)
+		panic(err)
+	}
 
 	// Check to see if we have already won.
 	if n.wonElection(votes) {
